@@ -10,3 +10,63 @@ h1 {
 nav {
     text-align: center;
 }
+
+.cheeses {
+    width: 65%;
+    margin: 0 auto;
+}
+
+#chs {
+
+width: 25%;
+
+
+}
+
+td {
+vertical-align: top;
+}
+
+textarea {
+        width: 361px;
+        height: 99px;
+}
+
+#dsc {
+
+width: 75%;
+
+}
+
+#rem {
+
+width: 25%;
+
+}
+
+p {
+
+text-align: center;
+
+}
+
+th {
+
+text-align: left;
+
+}
+
+.remove {
+text-align: center;
+}
+
+#addCheese {
+
+min-width: 500px;
+margin: 0 auto;
+
+}
+
+.submit {
+text-align: center;
+}
