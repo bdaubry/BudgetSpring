@@ -22,7 +22,7 @@ public class TransactionController {
     @RequestMapping(value = "")
     public String index(Model model) {
 
-        model.addAttribute("transactions", transactionDao.findAll());
+        model.addAttribute("transactions", transactionDao.findAllByOrderByDateDesc());
         model.addAttribute("title", "Transaction List");
 
         return "transactions/index";
