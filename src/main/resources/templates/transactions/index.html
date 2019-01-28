@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${transactions} and ${transactions.size()}">No Transactions</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Receipt</th>
+    </tr>
+
+    <tr th:each="transaction : ${transactions}">
+        <td th:text="${'$'+#numbers.formatDecimal(transaction.amount, 0, 'COMMA', 2, 'POINT')}" th:class="${transaction.type}"></td>
+        <td th:text="${transaction.type}"></td>
+        <td th:text="${transaction.description}"></td>
+        <td th:text="${(transaction.date.month+1)+'/'+transaction.date.date+'/'+(transaction.date.getYear()+1900)}"></td>
+        <td th:text="${transaction.category.name}"></td>
+        <td></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${expense}">
+    <div class="form-group">
+        <label th:for="amount">Amount</label>
+        <input class="form-control" th:field="*{amount}" />
+        <span th:errors="*{amount}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="description">Description</label>
+        <input class="form-control" th:field="*{description}" />
+        <span th:errors="*{description}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="date">Date</label>
+        <input type="date" class="form-control" th:field="*{date}" />
+        <span th:errors="*{date}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="category">Category</label>
+        <select th:field="*{category}">
+            <option th:each="expenseCategory : ${expenseCategories}"
+                    th:text="${expenseCategory.name}"
+                    th:value="${expenseCategory}"></option>
+        </select>
+    </div>
+
+    <input type="submit" value="Add Transaction" />
+</form>
+
+</body>
+</html>
